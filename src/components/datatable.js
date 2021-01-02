@@ -24,7 +24,7 @@ export default function DataTable(){
     .then(result=> {
       setState(result)
     })
-  }, [state])
+  }, [])
     const classes = useStyles();
     return (
         <>
