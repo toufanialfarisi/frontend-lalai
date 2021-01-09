@@ -42,7 +42,7 @@ export default function VRMS(){
             color={"orange"}
           />
            <Title
-             text="VRMS (V)"
+             text="Vrms (V)"
            />
         </Chart>
         

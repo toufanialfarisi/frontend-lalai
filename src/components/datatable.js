@@ -33,9 +33,9 @@ export default function DataTable(){
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">Vrms</TableCell>
-            <TableCell align="center">Irms</TableCell>
-            <TableCell align="center">P</TableCell>
+            <TableCell align="center">Vrms (V)</TableCell>
+            <TableCell align="center">Irms (mA)</TableCell>
+            <TableCell align="center">P (Watt)</TableCell>
             <TableCell align="center">Prediction</TableCell>
           </TableRow>
         </TableHead>
