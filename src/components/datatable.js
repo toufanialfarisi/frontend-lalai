@@ -18,13 +18,15 @@ const useStyles = makeStyles({
   
 export default function DataTable(){
   const [state, setState] = React.useState([])
+  const store = []
   React.useEffect(() => {
     fetch("https://backend-lalai.herokuapp.com/api/v1/all")
     .then(data=>data.json())
     .then(result=> {
-      setState(result)
+      setState(result.data)
+      // store.push(result.data)
     })
-  }, [])
+  }, [state])
     const classes = useStyles();
     return (
         <>
@@ -41,11 +43,11 @@ export default function DataTable(){
         <TableBody>
           {state.map((item) => (
             <TableRow key={item._id}>
-                <TableCell align="center">{item.data.vrms}</TableCell>
-              <TableCell align="center">{item.data.irms}</TableCell>
-              <TableCell align="center">{item.data.p}</TableCell>
+                <TableCell align="center">{item.vrms}</TableCell>
+              <TableCell align="center">{item.irms}</TableCell>
+              <TableCell align="center">{item.p}</TableCell>
               <TableCell align="center"  component="th" scope="row">
-                {item.data.y_pred}
+                {item.y_pred}
               </TableCell>
               
             </TableRow>

@@ -17,12 +17,12 @@ export default function POWER(){
         fetch("https://backend-lalai.herokuapp.com/api/v1/all")
         .then(data=> data.json())
         .then(item => {
-            setState(item)
+            setState(item.data)
         })
-    }, [])
+    }, [state])
     const P = []
     state.map(item => {
-        return P.push(item.data.irms)
+        return P.push(item.irms)
         
     })
     const power = []

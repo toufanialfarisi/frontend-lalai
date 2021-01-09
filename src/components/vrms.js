@@ -16,12 +16,12 @@ export default function VRMS(){
         fetch("https://backend-lalai.herokuapp.com/api/v1/all")
         .then(data=> data.json())
         .then(item => {
-            setState(item)
+            setState(item.data)
         })
-    }, [])
+    }, [state])
     const vrms = []
     state.map(item => {
-        return vrms.push(item.data.vrms)
+        return vrms.push(item.vrms)
     })
     const vrmsScheme = []
     vrms.forEach((item, num) => {
