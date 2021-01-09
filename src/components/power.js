@@ -19,7 +19,7 @@ export default function POWER(){
         .then(item => {
             setState(item.data)
         })
-    }, [state])
+    }, [])
     const P = []
     state.map(item => {
         return P.push(item.irms)

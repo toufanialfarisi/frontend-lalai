@@ -9,7 +9,7 @@ export default function Count(){
         .then(item => {
             setState(item)
         })
-    }, [state])
+    }, [])
     return (
         <>
         <Typography variant="p" color="textSecondary">Number Incoming Data</Typography>

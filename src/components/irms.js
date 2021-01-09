@@ -19,7 +19,7 @@ export default function IRMS(){
         .then(item => {
             setState(item.data)
         })
-    }, [state])
+    }, [])
     const irms = []
     const vrms = []
     state.map(item => { return irms.push(item.irms)})
