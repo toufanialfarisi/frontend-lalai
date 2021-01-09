@@ -18,7 +18,6 @@ const useStyles = makeStyles({
   
 export default function DataTable(){
   const [state, setState] = React.useState([])
-  const store = []
   React.useEffect(() => {
     fetch("https://backend-lalai.herokuapp.com/api/v1/all")
     .then(data=>data.json())
