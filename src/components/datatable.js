@@ -6,7 +6,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { makeStyles } from '@material-ui/core/styles';
-
+import {useData} from "../components/DataProvider"
 
 const useStyles = makeStyles({
     table: {
@@ -18,14 +18,15 @@ const useStyles = makeStyles({
   
 export default function DataTable(){
   const [state, setState] = React.useState([])
+  const {endpoint} = useData()
   React.useEffect(() => {
-    fetch("https://backend-lalai.herokuapp.com/api/v1/all")
+    fetch(endpoint+"/all")
     .then(data=>data.json())
     .then(result=> {
       setState(result.data)
       // store.push(result.data)
     })
-  }, [])
+  }, [state])
     const classes = useStyles();
     return (
         <>

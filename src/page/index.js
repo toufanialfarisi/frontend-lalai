@@ -25,7 +25,8 @@ import Count from "../components/count"
 import IRMS from "../components/irms"
 import VRMS from "../components/vrms"
 import POWER from "../components/power"
-
+import Map from "../components/map";
+import Chip from '@material-ui/core/Chip';
 
 const drawerWidth = 240;
 
@@ -104,7 +105,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 300,
+    height: 400,
   },
   chartPaper:{
     padding:theme.spacing(5)
@@ -214,8 +215,21 @@ export default function Dashboard(props) {
               </Paper>
             </Grid>
           </Grid>
-          <Box pt={4}>
+          <Box pt={3}>
           </Box>
+          <Grid item xs={12} md={12} lg={12}>
+          <Chip label="rice_cooker"  style={{margin:5, backgroundColor:"#EE3840", color:"white"}}/>
+          <Chip label="kipas_angin"  style={{margin:5, backgroundColor:"#38C1EE", color:"white"}}/>
+          <Chip label="strika"  style={{margin:5, backgroundColor:"#38EE9C", color:"white"}}/>
+          <Chip label="heater"  style={{margin:5, backgroundColor:"#EEC338", color:"white"}}/>
+          <Chip label="dispenser"  style={{margin:5, backgroundColor:"#EE38B5", color:"white"}}/>
+          
+          </Grid>
+          <Grid item xs={12} md={12} lg={12}>
+            <Paper style={{padding:15}} className={fixedHeightPaper}>
+              <Map />
+            </Paper>
+          </Grid>
         </Container>
       </main>
     </div>

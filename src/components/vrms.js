@@ -7,18 +7,20 @@ import {
     Title,
   } from '@devexpress/dx-react-chart-material-ui';
 
+import {useData} from "../components/DataProvider"
   
 export default function VRMS(){
-    
+    const {endpoint} = useData()
     const [state, setState] = React.useState([])
 
     React.useEffect(() => {
-        fetch("https://backend-lalai.herokuapp.com/api/v1/all")
+        fetch(endpoint+"/all")
         .then(data=> data.json())
         .then(item => {
             setState(item.data)
         })
-    }, [])
+    }, [state])
+    
     const vrms = []
     state.map(item => {
         return vrms.push(item.vrms)
@@ -27,7 +29,7 @@ export default function VRMS(){
     vrms.forEach((item, num) => {
         vrmsScheme.push({ argument: num, value: item })
     })
-      
+    console.log(vrmsScheme)
     return (
         <>
         <Chart
@@ -36,7 +38,7 @@ export default function VRMS(){
           <ArgumentAxis />
           <ValueAxis />
           <SplineSeries
-            name="Irms"
+            name="Vrms"
             valueField="value"
             argumentField="argument"
             color={"orange"}

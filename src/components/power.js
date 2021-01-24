@@ -7,19 +7,19 @@ import {
     SplineSeries,
     Title,
   } from '@devexpress/dx-react-chart-material-ui';
-
+import {useData} from "../components/DataProvider"
   
 export default function POWER(){
-    
+  const {endpoint} = useData()
     const [state, setState] = React.useState([])
 
     React.useEffect(() => {
-        fetch("https://backend-lalai.herokuapp.com/api/v1/all")
+        fetch(endpoint + "/all")
         .then(data=> data.json())
         .then(item => {
             setState(item.data)
         })
-    }, [])
+    }, [state])
     const P = []
     state.map(item => {
         return P.push(item.irms)

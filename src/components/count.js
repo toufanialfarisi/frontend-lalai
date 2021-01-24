@@ -1,15 +1,16 @@
 import React from "react"
 import Typography from '@material-ui/core/Typography';
-
+import {useData} from "../components/DataProvider"
 export default function Count(){
-    const [state, setState] = React.useState({})
+    const {endpoint} = useData();
+    const [state, setState] = React.useState({});
     React.useEffect(() => {
-        fetch("https://backend-lalai.herokuapp.com/api/v1/count")
+        fetch(endpoint + "/count")
         .then(data=> data.json())
         .then(item => {
             setState(item)
         })
-    }, [])
+    }, [state])
     return (
         <>
         <Typography variant="p" color="textSecondary">Number Incoming Data</Typography>

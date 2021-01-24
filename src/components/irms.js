@@ -7,26 +7,21 @@ import {
     SplineSeries,
     Title,
   } from '@devexpress/dx-react-chart-material-ui';
+import {useData} from "../components/DataProvider"
 
-  
 export default function IRMS(){
-    
+    const {endpoint} = useData()
     const [state, setState] = React.useState([])
 
     React.useEffect(() => {
-        fetch("https://backend-lalai.herokuapp.com/api/v1/all")
+        fetch(endpoint+"/all")
         .then(data=> data.json())
         .then(item => {
             setState(item.data)
         })
-    }, [])
+    }, [state])
     const irms = []
-    const vrms = []
     state.map(item => { return irms.push(item.irms)})
-    const vrmsScheme = []
-    vrms.forEach((item, num) => {
-        vrmsScheme.push({ argument: num, value: item })
-    })
     const irmsScheme = []
     irms.forEach((item, num) => {
         irmsScheme.push({ argument: num, value: item })
