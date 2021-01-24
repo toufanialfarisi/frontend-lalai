@@ -7,6 +7,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { makeStyles } from '@material-ui/core/styles';
 import {useData} from "../components/DataProvider"
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles({
     table: {
@@ -14,7 +15,12 @@ const useStyles = makeStyles({
     },
   });
   
-
+const textColor = ['#EE3840',
+      '#38C1EE',
+      '#38EE9C',
+      '#EEC338',
+      '#EE38B5'
+]
   
 export default function DataTable(){
   const [state, setState] = React.useState([])
@@ -47,7 +53,12 @@ export default function DataTable(){
               <TableCell align="center">{item.irms}</TableCell>
               <TableCell align="center">{item.p}</TableCell>
               <TableCell align="center"  component="th" scope="row">
-                {item.y_pred}
+                  {item.y_pred === "rice_cooker" ? (<Typography style={{color:textColor[0]}}> <strong>{item.y_pred}</strong></Typography>) :
+                  item.y_pred === "kipas_angin" ? (<Typography style={{color:textColor[1]}}> <strong>{item.y_pred}</strong></Typography>) :
+                  item.y_pred === "strika" ? (<Typography style={{color:textColor[2]}}> <strong>{item.y_pred}</strong></Typography>) :
+                  item.y_pred === "heater" ? (<Typography style={{color:textColor[3]}}> <strong>{item.y_pred}</strong></Typography>) : 
+                  (<Typography style={{color:textColor[4]}}> <strong>{item.y_pred}</strong></Typography>)}
+                
               </TableCell>
               
             </TableRow>
