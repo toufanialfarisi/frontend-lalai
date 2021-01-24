@@ -26,7 +26,7 @@ export default function DataTable(){
       setState(result.data)
       // store.push(result.data)
     })
-  }, [state])
+  }, [])
     const classes = useStyles();
     return (
         <>

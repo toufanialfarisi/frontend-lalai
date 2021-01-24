@@ -19,7 +19,7 @@ export default function VRMS(){
         .then(item => {
             setState(item.data)
         })
-    }, [state])
+    }, [])
     
     const vrms = []
     state.map(item => {

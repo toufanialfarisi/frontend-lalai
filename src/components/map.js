@@ -24,7 +24,7 @@ export default function Map(){
         setPosition([position.coords.latitude,position.coords.longitude])
         }   
     )
-    }, [items])
+    }, [])
 
     console.log(position)
     return (
