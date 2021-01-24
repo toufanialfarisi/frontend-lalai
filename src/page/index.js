@@ -150,7 +150,7 @@ export default function Dashboard(props) {
         </Toolbar>
       </AppBar>
       <Drawer
-        variant="persistent"
+        variant="temporary"
         classes={{
           paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
         }}
