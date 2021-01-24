@@ -7,8 +7,8 @@ export const useData = () => {
 }
 
 export default function DataProvider (props){
-    const endpoint = "http://localhost:5000/api/v1";
-    const prodEndp = "https://backend-lalai.herokuapp.com/api/v1";
+    // const endpoint = "http://localhost:5000/api/v1";
+    const endpoint = "https://backend-lalai.herokuapp.com/api/v1";
     return (
         <DataContext.Provider
         value={{endpoint}}
